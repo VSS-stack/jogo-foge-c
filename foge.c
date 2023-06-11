@@ -10,9 +10,13 @@ int acabou() {
     return 0;
 }
 
+int teclavalida(char direcao) {
+    return direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd';
+}
+
 void move(char direcao) {
 
-    if(direcao != 'a' && direcao != 'w' && direcao != 's' && direcao != 'd') {
+    if(teclavalida(direcao)) {
         return;
     }
 
@@ -34,15 +38,16 @@ void move(char direcao) {
             break;
     }
 
-    if(proximoy >= m.colunas)
+    if(limitevalido(&m, proximox, proximoy)) {
         return;
-    if(proximox >= m.linhas)
-        return;
-    if(m.matriz[proximox][proximoy] != '.')
-        return;
+    }
 
-    m.matriz[proximox][proximoy] = '@';
-    m.matriz[heroi.x][heroi.y] = '.';
+    if(posicaovazia(&m, proximox, proximoy)) {
+        return;
+    }
+
+    movepersonagem(&m, heroi.x, heroi.y, proximox, proximoy);
+
     heroi.x = proximox;
     heroi.y = proximoy;
 }

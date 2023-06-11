@@ -14,3 +14,6 @@ void lemapa(MAPA *m);
 void alocamapa(MAPA *m);
 void imprimemapa(MAPA *m);
 void encontranomapa(MAPA *m, POSICAO *p, char c);
+int limitevalido(MAPA *m, int x, int y);
+int posicaovazia(MAPA *m, int x, int y);
+void movepersonagem(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino);

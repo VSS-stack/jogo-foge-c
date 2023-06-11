@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include "mapa.h"
 
+void movepersonagem(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino) {
+    /*m->matriz[xdestino][ydestino] = '@';
+    m->matriz[xorigem][yorigem] = '.';
+    xorigem = xdestino;
+    yorigem = ydestino;*/
+
+    char personagem = m->matriz[xorigem][yorigem];
+    m->matriz[xdestino][ydestino] = personagem;
+    m->matriz[xorigem][yorigem] = '.';
+}
+
 void encontranomapa(MAPA *m, POSICAO *p, char c) {
     for(int i = 0; i < m->linhas; i++) {
         for(int j = 0; j < m->colunas; j++) {
@@ -52,4 +63,17 @@ void imprimemapa(MAPA *m) {
     for(int i = 0; i <= 4; i++) {
         printf("%s\n", m->matriz[i]);
     }
+}
+
+int limitevalido(MAPA *m, int x, int y) {
+    if(y >= m->colunas)
+        return 1;
+    if(x >= m->linhas)
+        return 1;
+
+    return 0;
+}
+
+int posicaovazia(MAPA *m, int x, int y) {
+    return (m->matriz[x][y] != '.');
 }
