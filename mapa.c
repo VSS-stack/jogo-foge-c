@@ -10,7 +10,7 @@ void movepersonagem(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestin
 
     char personagem = m->matriz[xorigem][yorigem];
     m->matriz[xdestino][ydestino] = personagem;
-    m->matriz[xorigem][yorigem] = '.';
+    m->matriz[xorigem][yorigem] = VAZIO;
 }
 
 void encontranomapa(MAPA *m, POSICAO *p, char c) {
@@ -75,5 +75,5 @@ int limitevalido(MAPA *m, int x, int y) {
 }
 
 int posicaovazia(MAPA *m, int x, int y) {
-    return (m->matriz[x][y] != '.');
+    return (m->matriz[x][y] != VAZIO);
 }

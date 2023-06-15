@@ -1,3 +1,8 @@
+#define HEROI             '@'
+#define VAZIO             '.'
+#define PAREDE_VERTICAL   '|'
+#define PAREDE_HORIZONTAL '-'
+
 typedef struct mapa {
     char **matriz;
     int linhas;
