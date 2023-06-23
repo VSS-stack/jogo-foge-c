@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mapa.h"
+#include <string.h>
+
+void copiamapa(MAPA *destino, MAPA *origem) {
+    destino->linhas = origem->linhas;
+    destino->colunas = origem->colunas;
+
+    alocamapa(destino);
+    for(int i = 0; i < destino->linhas; i++) {
+        strcpy(destino->matriz[i], origem->matriz[i]);
+    }
+}
 
 void movepersonagem(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino) {
     /*m->matriz[xdestino][ydestino] = '@';
