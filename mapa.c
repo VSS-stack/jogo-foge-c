@@ -24,16 +24,18 @@ void movepersonagem(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestin
     m->matriz[xorigem][yorigem] = VAZIO;
 }
 
-void encontranomapa(MAPA *m, POSICAO *p, char c) {
+int encontranomapa(MAPA *m, POSICAO *p, char c) {
     for(int i = 0; i < m->linhas; i++) {
         for(int j = 0; j < m->colunas; j++) {
             if(m->matriz[i][j] == c) {
                 p->x = i;
                 p->y = j;
-                break;
+                return 1;
             }
         }
     }
+
+    return 0;
 }
 
 void liberamapa(MAPA *m) {

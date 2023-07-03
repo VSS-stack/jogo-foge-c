@@ -55,7 +55,9 @@ void fantasmas() {
 }
 
 int acabou() {
-    return 0;
+    POSICAO pos;
+    int fogefogenomapa = encontranomapa(&m,&pos,HEROI);
+    return !fogefogenomapa;
 }
 
 int teclavalida(char direcao) {
