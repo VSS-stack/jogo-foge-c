@@ -38,6 +38,10 @@ int encontranomapa(MAPA *m, POSICAO *p, char c) {
     return 0;
 }
 
+int podeandar(MAPA *m, int x, int y) {
+    return ehvalida(m, x, y) && ehvazia(m, x, y);
+}
+
 void liberamapa(MAPA *m) {
     for(int i = 0; i < m->linhas; i++) {
         free(m->matriz[i]);
@@ -78,15 +82,15 @@ void imprimemapa(MAPA *m) {
     }
 }
 
-int limitevalido(MAPA *m, int x, int y) {
+int ehvalida(MAPA *m, int x, int y) {
     if(y >= m->colunas)
-        return 1;
+        return 0;
     if(x >= m->linhas)
-        return 1;
+        return 0;
 
-    return 0;
+    return 1;
 }
 
-int posicaovazia(MAPA *m, int x, int y) {
-    return (m->matriz[x][y] != VAZIO);
+int ehvazia(MAPA *m, int x, int y) {
+    return (m->matriz[x][y] == VAZIO);
 }
