@@ -8,4 +8,5 @@ int acabou();
 void move(char direcao);
 int teclavalida(char direcao);
 void fantasmas();
-void explodepilula(int x, int y, int qtd);
+void explodepilula();
+void explodepilula2(int x, int y, int somax, int somay, int qtd);
