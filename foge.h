@@ -1,3 +1,6 @@
+#ifndef _FOGE_H_
+#define _FOGE_H_
+
 #define CIMA     'w'
 #define BAIXO    's'
 #define ESQUERDA 'a'
@@ -10,3 +13,5 @@ int teclavalida(char direcao);
 void fantasmas();
 void explodepilula();
 void explodepilula2(int x, int y, int somax, int somay, int qtd);
+
+#endif

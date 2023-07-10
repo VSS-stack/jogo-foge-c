@@ -3,6 +3,7 @@
 #include <time.h>
 #include "foge.h"
 #include "mapa.h"
+#include "ui.h"
 
 MAPA m;
 POSICAO heroi;
